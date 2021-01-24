@@ -5,11 +5,19 @@ from kivy.uix.image import Image
 from kivy.clock import Clock
 from kivy.graphics.texture import Texture
 import cv2
+from android.permissions import request_permissions, Permission
+
+request_permissions([
+    Permission.CAMERA,
+    Permission.WRITE_EXTERNAL_STORAGE,
+    Permission.READ_EXTERNAL_STORAGE
+])
 
 
 class CamApp(App):
 
     def build(self):
+
         self.img1 = Image()
         layout = BoxLayout()
         layout.add_widget(self.img1)
